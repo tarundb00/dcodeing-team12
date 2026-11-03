@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Append & Animation</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        #animatedDiv{
+            width:100px;
+             height:100px; 
+            background:blue;
+            margin:10px;
+        }
+    </style>
+</head>
+
+<body>  
+
+<h2> 1) Content Appending</h2>
+
+<p id="paragraph">This is the original paragraph content.</p>
+
+<ul id="list">
+    <li>Initial List Item 1</li>
+    <li>Initial List Item 2</li>
+</ul>
+
+<button id="appendText">Append Text</button>
+<button id="appendListItem">Append List Item</button>
+
+<hr>
+
+<h2>2) Animation</h2>
+
+<button id="animateDiv">Run Animation</button>
+<div id="animatedDiv"></div>
+<script>
+$(document).ready(function(){
+
+    // append text in paragraph
+    $("#appendText").click(function(){
+        $("#paragraph").append(" (New content appended!");
+    });
+
+    // append new list item
+    $("#appendListItem").click(function(){
+        $("#list").append("<li>New Item Appended!</li>");
+    });
+
+    // animation
+    $("#animateDiv").click(function(){
+        $("#animatedDiv").animate({
+            width: "200px",
+            height: "200px"
+        },1000,function(){
+            $(this).css("background","red");
+        });
+    });
+});
+</script>
+
+</body>
+</html>
