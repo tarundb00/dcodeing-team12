@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Class Time Table</title>
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse; /* Merges borders for a cleaner look */
+    font-family: sans-serif;
+  }
+  th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+  }
+  /* Style for the very first row (Days) */
+  .header {
+    background-color: #b6d7a8; 
+    font-weight: bold;
+  }
+  /* Style for the first column (Time slots) */
+  .time-col {
+    background-color: #ba1d1d;
+    color: white;
+    font-weight: bold;
+  }
+  .lab-hour {
+    background-color: #f4cccc; 
+  }
+  .elective-hour {
+    background-color: #d9ead3; 
+  }
+  .lunch-row {
+    background-color: #f9f9f9;
+    font-style: italic;
+    font-weight: bold;
+  }
+  .footer {
+    background-color: #cfe2f3;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<h1>Class Time Table</h1>
+
+<table>
+  <thead>
+    <tr class="header">
+      <th>Time</th>
+      <th>Monday</th>
+      <th>Tuesday</th>
+      <th>Wednesday</th>
+      <th>Thursday</th>
+      <th>Friday</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="time-col">9:00 - 10:00</td>
+      <td class="lab-hour">Math</td>
+      <td class="elective-hour">Art</td>
+      <td class="lab-hour">Science</td>
+      <td class="elective-hour">PE</td>
+      <td class="lab-hour">English</td>
+    </tr>
+    <tr>
+      <td class="time-col">10:00 - 11:00</td>
+      <td class="elective-hour">History</td>
+      <td class="lab-hour">Math</td>
+      <td class="elective-hour">Computer Science</td>
+      <td class="lab-hour">History</td>
+      <td class="elective-hour">Art</td>
+    </tr>
+    <tr class="lunch-row">
+      <td>12:00 - 1:00</td>
+      <td colspan="5">Lunch Break</td>
+    </tr>
+    </tbody>
+  <tfoot>
+    <tr class="footer">
+      <td colspan="6">End of Week Timetable</td>
+    </tr>
+  </tfoot>
+</table>
+
+</body>
+</html>

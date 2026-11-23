@@ -1,0 +1,124 @@
+<!DOCTYPE html> 
+<head> 
+<title>Registration Form</title> 
+<style> 
+body { 
+font-family: Arial, sans-serif; 
+background-color: #f4f4f4; 
+margin: 0; 
+padding: 20px; 
+} 
+table { 
+width: 100%; 
+max-width: 600px; 
+margin: 0 auto; 
+border-collapse: collapse; 
+} 
+th, td { 
+padding: 10px; 
+text-align: left; 
+} 
+th { 
+background-color: #3498db; 
+color: #fff; 
+font-size: 18px; 
+} 
+td { 
+background-color: #ecf0f1; 
+} 
+label { 
+display:block; 
+margin-bottom: 5px; 
+font-size: 16px; 
+color: #2c3e50; 
+} 
+input[type="text"], 
+input[type="email"],
+input[type="password"], 
+select, 
+textarea { 
+width: 100%; 
+padding: 8px; 
+border: 1px solid #bdc3c7; 
+border-radius: 4px; 
+font-size: 14px; 
+} 
+input[type="submit"] { 
+background-color: #2ecc71; 
+color: #fff; 
+border: none; 
+padding: 10px 20px; 
+border-radius: 4px; 
+font-size: 16px; 
+cursor: pointer; 
+} 
+input[type="submit"]:hover { 
+background-color: #27ae60; 
+} 
+.form-container { 
+background-color: #fff; 
+padding: 20px; 
+border-radius: 8px; 
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+} 
+.form-title { 
+font-size: 24px; 
+color: #2c3e50; 
+margin-bottom: 20px; 
+} 
+.button{
+    align-items: center;
+    margin-left: 200px;
+    
+}
+</style> 
+</head> 
+<body> 
+
+<div class="form-container"> 
+<h1 class="form-title">Registration Form</h1> 
+<form action="#" method="post"> 
+<table> 
+<tr> 
+<th colspan="2">Personal Information</th> 
+</tr> 
+<tr> 
+<td><label for="first-name">First Name:</label></td> 
+<td><input type="text" id="first-name" name="first-name" required></td> 
+</tr> 
+<tr> 
+<td><label for="last-name">Last Name:</label></td> 
+<td><input type="text" id="last-name" name="last-name" required></td> 
+</tr> 
+<tr> 
+<td><label for="email">Email:</label></td> 
+<td><input type="email" id="email" name="email" required></td> 
+</tr> 
+<tr> 
+<td><label for="password">Password:</label></td> 
+<td><input type="password" id="password" name="password" required></td> 
+</tr> 
+<tr> 
+<td><label for="gender">Gender:</label></td> 
+<td> 
+<select id="gender" name="gender"> 
+<option value="male">Male</option> 
+<option value="female">Female</option> 
+<option value="other">Other</option> 
+</select> 
+</td> 
+</tr> 
+<tr> 
+<td><label>Bio:</label></td> 
+<td><textarea id="bio" name="bio" rows="4"></textarea></td> 
+</tr> 
+<tr> 
+<td colspan="2"> 
+<input type="submit" id="button" value="Register"> 
+</td> 
+</tr> 
+</table> 
+</form> 
+</div> 
+</body> 
+</html>

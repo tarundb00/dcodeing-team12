@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>JSON/CSV & Hash Converter</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+
+<body>
+
+  <h3>JSON → Object</h3>
+  <textarea id="jsonInput" rows="3" cols="55" placeholder='{"name":"Alice"}'></textarea>
+  <button onclick="jsonToObject()">Convert</button>
+
+  <h3>JSON (Date) → Date Object</h3>
+  <textarea id="jsonDate" rows="2" cols="55" placeholder='{"date":"2025-05-15"}'></textarea>
+  <button onclick="jsonToDate()">Convert</button>
+
+  <h3>JSON ↔ CSV</h3>
+  <textarea id="data" rows="5" cols="55" placeholder='[{"a":1},{"a":2}] or a\n1\n2'></textarea><br>
+  <button onclick="jsonToCsv()">JSON → CSV</button>
+  <button onclick="csvToJson()">CSV → JSON</button>
+
+  <h3>Text → SHA256 Hash</h3>
+  <textarea id="textInput" rows="10" cols="55" placeholder="Enter text"></textarea>
+  <button onclick="makeHash()">Hash</button>
+
+  <pre id="result"></pre>
+
+<script>
+  const out = msg => document.getElementById("result").textContent = msg;
+
+  function jsonToObject() {
+    try { out(JSON.stringify(JSON.parse(jsonInput.value), null, 2)); }
+    catch { out("Invalid JSON"); }
+  }
+
+  function jsonToDate() {
+    try { out(new Date(JSON.parse(jsonDate.value).date).toString()); }
+    catch { out("Invalid Date JSON"); }
+  }
+
+  function jsonToCsv() {
+    try {
+      const arr = JSON.parse(data.value);
+      const h = Object.keys(arr[0]);
+      const csv = [h.join(","), ...arr.map(o => h.map(x => o[x]).join(","))].join("\n");
+      out(csv);
+    } catch { out("Invalid JSON"); }
+  }
+
+  function csvToJson() {
+    try {
+      const [head, ...rest] = data.value.split("\n");
+      const h = head.split(",");
+      const json = rest.map(r => {
+        const v = r.split(",");
+        return h.reduce((o, x, i) => (o[x] = v[i], o), {});
+     });
+      out(JSON.stringify(json, null, 2));
+    } catch { out("Invalid CSV"); }
+  }
+
+  function makeHash() {
+    out(CryptoJS.SHA256(textInput.value).toString());
+  }
+</script>
+</body>
+</html>

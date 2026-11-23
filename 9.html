@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>jQuery Animations & Manipulations</title>
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  .animated-div {width:100px; height:100px; }
+</style>
+</head>
+<body class="p-4">
+<div class="max-w-xl">
+<h1>jQuery </h1>
+<section class="mb-4">
+  <h2>1. Content Appending</h2>
+  <p id="paragraph">This is the original paragraph content.</p>
+  <ul id="list">
+    <li>Initial List Item 1</li>
+    <li>Initial List Item 2</li>
+  </ul>
+  <button id="appendText">Append Text</button>
+  <button id="appendListItem">Append List Item</button>
+</section>
+<section>
+  <h2>2. Animation & Styling</h2>
+  <button id="animateDiv">Run Animation</button>
+  <div id="animatedDiv" class="animated-div mt-2" style="background:#3b82f6;"></div>
+</section>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(function()
+ {
+  $("#appendText").click(() => $("#paragraph").append(" (New content appended!)")   );
+  $("#appendListItem").click(() => $("#list").append("<li>New Item Appended!</li>") );
+  $("#animateDiv").click(() => $("#animatedDiv")
+ .css({ width:100, height:100, background:"#3b82f6" })
+  .animate({ width:200, height:200 }, 1000, function () {        
+$(this).css("background", "red");
+      })
+  );
+});
+</script>
+</body>
+</html> 

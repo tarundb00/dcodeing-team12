@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+</head>
+<body>
+
+<h2>Simple Calculator</h2>
+
+<input id="num1" type="number" placeholder="First Number"><br><br>
+<input id="num2" type="number" placeholder="Second Number"><br><br>
+
+<select id="operation">
+    <option value="sum">Sum</option>
+    <option value="difference">Difference</option>
+    <option value="product">Product</option>
+    <option value="quotient">Quotient</option>
+    <option value="remainder">Remainder</option>
+    <option value="power">Power</option>
+    <option value="sqrt">Square Root</option>
+    <option value="square">Square</option>
+</select>
+
+<button onclick="calc()">Calculate</button>
+
+<p id="result"></p>
+
+<script>
+function calc() {
+    let a = parseFloat(num1.value);
+    let b = parseFloat(num2.value);
+    let op = operation.value;
+    let r;
+
+    if (op === "sum") r = a + b;
+    else if (op === "difference") r = a - b;
+    else if (op === "product") r = a * b;
+    else if (op === "quotient") r = a / b;
+    else if (op === "remainder") r = a % b;
+    else if (op === "power") r = a ** b;
+    else if (op === "sqrt") r = Math.sqrt(a);
+    else if (op === "square") r = a * a;
+
+    result.textContent = "Result: " + r;
+}
+</script>
+</body>
+</html>

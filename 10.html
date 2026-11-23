@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AJAX & JSON Examples</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<h2>(a) AJAX Without jQuery</h2>
+<button onclick="loadWithoutJQuery()">Load Text</button>
+<div id="outputA"></div>
+
+<h2>(b) AJAX With jQuery ( $.ajax )</h2>
+<button id="loadJQ">Load Text (jQuery)</button>
+<div id="outputB"></div>
+
+<h2>(c) jQuery getJSON() Example</h2>
+<button id="loadJSON">Load JSON</button>
+<div id="outputC"></div>
+
+<h2>(d) jQuery parseJSON() Example</h2>
+<button onclick="parseJSONData()">Parse JSON</button>
+<div id="outputD"></div>
+
+<script>
+// (a) AJAX without jQuery
+function loadWithoutJQuery() {
+    var xhr = new XMLHttpRequest();   
+    xhr.open("GET", "data.txt", true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            document.getElementById("outputA").innerHTML = xhr.responseText;
+        }
+    };
+    xhr.send();
+}
+
+// (b) AJAX with jQuery
+$("#loadJQ").click(function () {
+    $.ajax({
+        url: "data.txt",
+        method: "GET",
+        success: function (data) {
+            $("#outputB").html(data);
+        }
+    });
+});
+
+// (c) Using getJSON()
+$("#loadJSON").click(function () {
+    $.getJSON("data.json", function (data) {
+        $("#outputC").html(
+            "Name: " + data.name + "<br>" +
+            "Age: " + data.age + "<br>" +
+            "Course: " + data.course
+        );
+    });
+});
+
+// (d) Using parseJSON()
+function parseJSONData() {
+    var jsonText = '{"company":"OpenAI","product":"ChatGPT","year":2025}';
+    var obj = $.parseJSON(jsonText);
+    document.getElementById("outputD").innerHTML =
+        "Company: " + obj.company + "<br>" +
+        "Product: " + obj.product + "<br>" +
+        "Year: " + obj.year;
+}
+</script>
+</body>
+</html>
